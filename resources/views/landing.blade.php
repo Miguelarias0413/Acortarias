@@ -4,12 +4,13 @@
 @endsection
 @section('content')
     <section
-        class="  w-full h-full flex flex-col-reverse px-8 lg:flex-row items-center lg:pb-20  justify-start md:px-20 lg:px-32 ">
+        id="sectionPrincipal"   
+        class="  w-full h-full flex flex-col-reverse justify-end px-8 lg:flex-row items-center lg:pb-20   md:px-20 lg:px-32 ">
 
-        <div class=" basis-1/2 w-full lg:w-6/12   flex flex-col  md:px-8">
+        <div class=" basis-1/2 w-full lg:w-6/12   flex flex-col  md:px-8 ">
             <img class=" py-4 w-full h-64 lg:h-80 "src="{{ asset('ilustraciones/undraw_to-the-moon_w1wa.svg') }}"
                 alt="">
-            <h2 class=" text-center text-white font-bold md:text-left text-2xl uppercase mt-9 md:text-nowrap ">
+            <h2 class="  text-white font-bold md:text-left text-2xl uppercase mt-9 text-center text-wrap ">
                 El mejor acortador con una velocidad Galactica
             </h2>
             @auth()
@@ -24,17 +25,50 @@
                     ¡Empieza desde ya y Gratis!
                 </a>
             @endguest
-            <p class="text-white text-center ">
+            <p class="text-white text-center text-wrap ">
                 el mejor acortador de enlaces con una velocidad galactica, acorta tus enlaces de manera rapida y segura
             </p>
         </div>
 
 
-        <div class="flex w-full  lg:w-6/12 lg:pr-20  my-8 md:my-0 md: justify-end ">
+        <div class="flex w-full  lg:w-6/12   my-8 md:my-0 md: justify-end ">
             <h1
-                class=" w-full text-center  font-extrabold text-5xl lg:text-center  text-transparent bg-clip-text bg-gradient-to-tr from-lime-200 via-lime-400 to-lime-500 b-2   ">
+                id="tituloPrincipal"
+                class=" relative w-full  font-extrabold text-5xl text-center  text-transparent bg-clip-text bg-gradient-to-tr from-lime-200 via-lime-400 to-lime-600 b-2   ">
                 ACORTARIAS
             </h1>
         </div>
     </section>
+
+
+    @push('styles')
+    <style>
+        #sectionPrincipal::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -12%;
+            transform: translate(0, -50%);
+            width: 25%;
+            border-radius: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(115, 255, 0, 1) 0%, rgb(244, 244, 244) 100%);
+            z-index: -1;
+            filter: blur(220px);
+        }
+        #tituloPrincipal::before{
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: 50px;
+            background: rgb(53, 112, 1);
+            width: 200px;
+            height: 200px;
+            z-index: -1;
+            filter: blur(80px);
+            
+
+        }
+    </style>
+    @endpush
 @endsection

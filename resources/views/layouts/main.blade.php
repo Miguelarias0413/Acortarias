@@ -10,6 +10,8 @@
         @yield('title')
     </title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @stack('styles')
+
 </head>
 
 <body>
@@ -23,7 +25,7 @@
         </div>
     </div>
 
-    <header class=" border-black w-full h-20 fixed top-0 ">
+    <header class=" fixed  border-black w-full h-20  top-0 ">
         <ul class=" w-full h-full flex items-center justify-center gap-8 text-white font-bold uppercase text-sm">
             <li>
                 {{-- <a href="">Item 1</a>
@@ -55,5 +57,9 @@
     </main>
 
 </body>
+
+{{-- estilos --}}
+
+
 
 </html>

@@ -8,6 +8,19 @@ Route::get('/', function () {
     return view('landing');
 })->name('landing');
 
+// Visitantes
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('/login', [AuthController::class, 'index'])->name('login');
+    Route::post('/login', [AuthController::class, 'login'])->name('login.login');
+    Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
+    Route::post('/register', [AuthController::class, 'store'])->name('register.store');
+});
+
+// Autenticados
+Route::group(['middleware' => 'auth'], function () {
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+});
+
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -19,3 +32,4 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/{link:short_url}', [DashboardController::class, 'show'])->name('link.show');
+

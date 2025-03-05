@@ -19,14 +19,4 @@
                 <button type="submit" class="w-full py-2 px-4 bg-indigo-600 text-white font-semibold rounded-md shadow hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Iniciar Sesión</button>
             </div>
         </form>
-{{--
-        <div class="text-center">
-            <p class="text-sm text-black">¿No tienes una cuenta? 
-                <a href="{{route('register')}}" class="text-indigo-800 hover:text-indigo-900 font-semibold border-b border-indigo-900">
-                    Regístrate
-                </a>
-            </p>
-        </div>
-    </div>
-</div>
 @endsection
